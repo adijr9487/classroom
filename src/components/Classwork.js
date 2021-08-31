@@ -19,7 +19,7 @@ const Classwork = () => {
 
     const fetchAssigns = async () => {
         try {
-            let res = await fetch(`/class/${params.id}/assign`);
+            let res = await fetch(`https://fliprclassroom.herokuapp.com/class/${params.id}/assign`);
             res = await res.json();
             if (res.assigns) return res;
             throw res.error

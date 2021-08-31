@@ -20,7 +20,7 @@ const A_Class = () => {
 
         const fetchCls = async () => {
             try {
-                let res = await fetch(`/class/${params.id}`, {
+                let res = await fetch(`https://fliprclassroom.herokuapp.com/class/${params.id}`, {
                 });
                 res = await res.json();
                 if (res.error) {
@@ -33,7 +33,7 @@ const A_Class = () => {
         }
         const fetchPosts = async () => {
             try {
-                let res = await fetch(`/class/${params.id}/posts`);
+                let res = await fetch(`https://fliprclassroom.herokuapp.com/class/${params.id}/posts`);
                 res = await res.json();
                 if (res.error) {
                     setError(res.error);
@@ -66,7 +66,7 @@ const A_Class = () => {
 
     const submitPost = async () => {
         try {
-            let res = await fetch(`/class/${details.id}/posts`, {
+            let res = await fetch(`https://fliprclassroom.herokuapp.com/class/${details.id}/posts`, {
                 method: 'POST',
                 body: JSON.stringify({title:'',content: announce}),
                 headers: {

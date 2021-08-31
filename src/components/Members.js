@@ -11,7 +11,7 @@ const Members = () => {
 
     const fetchClass = async () => {
         try {
-            let res = await fetch(`/class/${params.id}`);
+            let res = await fetch(`https://fliprclassroom.herokuapp.com/class/${params.id}`);
             res = await res.json();
             if (!res.error) return res;
             throw res.error;

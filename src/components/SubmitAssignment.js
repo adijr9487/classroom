@@ -56,7 +56,7 @@ const SubmitAssignment = () => {
         
         const fetchAssigns = async () => {
             try{
-                let res = await fetch(`/assign/${params.id}`, {
+                let res = await fetch(`https://fliprclassroom.herokuapp.com/assign/${params.id}`, {
                         method: 'GET',
                         headers : { 
                             'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ const SubmitAssignment = () => {
     const submitHandler = async () => {
         console.log(answer)
         try{
-            let res = await fetch(`/assign/${params.id}/submit`, {
+            let res = await fetch(`https://fliprclassroom.herokuapp.com/assign/${params.id}/submit`, {
                     method: 'PATCH',
                     headers : { 
                         'Content-Type': 'application/json',

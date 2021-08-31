@@ -68,7 +68,7 @@ const SignUp = () => {
     }
 
     const fetchClassPosts = async () => {
-        let res = await fetch("/auth/signup", {
+        let res = await fetch("https://fliprclassroom.herokuapp.com/auth/signup", {
             method: 'POST',
             headers : { 
                 'Content-Type': 'application/json',

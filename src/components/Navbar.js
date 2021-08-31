@@ -37,7 +37,7 @@ const Navbar1 = () => {
 
   const logout = async () => {
     try {
-      let res = await fetch('/auth/logout');
+      let res = await fetch('https://fliprclassroom.herokuapp.com/auth/logout');
       console.log(res);
       res = await res.json();
       console.log(res);
@@ -59,7 +59,7 @@ const Navbar1 = () => {
       const [error, setError] = useState('');
 
       const submit = async () => {
-        let res = await fetch(`/class/join/${code}`, {method: 'PATCH', headers: {
+        let res = await fetch(`https://fliprclassroom.herokuapp.com/class/join/${code}`, {method: 'PATCH', headers: {
             'Content-Type':'application/json'
         }})
         res = await res.json();
@@ -111,7 +111,7 @@ const Navbar1 = () => {
       const [error, setError] = useState('');
       
       const submit = async () => {
-        let res = await fetch('/class', {
+        let res = await fetch('https://fliprclassroom.herokuapp.com/class', {
           method: 'POST',
           body: JSON.stringify({
             title: name,
