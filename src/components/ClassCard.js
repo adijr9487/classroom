@@ -31,7 +31,7 @@ const Class_Card = (props) => {
     return (
         <div className="p-4 center">
             <Card style={{ width: '18rem', color: "black" }} className="card1">    
-                        <Card.Img variant="top" src="images/book1.jpg" alt="image" />
+                        <Card.Img variant="top" src={`${process.env.PUBLIC_URL}/images/book1.jpg`} alt="image" />
                         <Link to={{
                             pathname: `/class/${props.id}/stream`,
                             state: {
