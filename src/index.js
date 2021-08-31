@@ -10,7 +10,7 @@ import { UserProvider } from './context/userContext'
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={window.location.pathname || ""}> 
         <App />
       </BrowserRouter>
     </UserProvider>
