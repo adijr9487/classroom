@@ -57,12 +57,14 @@ const SubmitAssignment = () => {
         const fetchAssigns = async () => {
             try{
                 let res = await fetch(`https://fliprclassroom.herokuapp.com/assign/${params.id}`, {
-                        method: 'GET',
-                        headers : { 
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                    });
+                    method: 'GET',
+                    headers: {
+                        'Content-Type':'application/json',
+                        Accept: "application/json",
+                    },
+                    withCredentials: true, 
+                    credentials: 'include',
+                });
                 res = await res.json();
                 return res;
             }
@@ -99,6 +101,8 @@ const SubmitAssignment = () => {
                         'Accept': 'application/json'
                     },
                     body: JSON.stringify(answer),
+                    withCredentials: true, 
+                    credentials: 'include'
                 })
             console.log(JSON.stringify(answer))
             

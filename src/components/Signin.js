@@ -6,6 +6,7 @@ import { MdAccountBox, MdEmail, MdLock } from "react-icons/md";
 import { UserContext } from "../context/userContext"
 
 import { FaChalkboardTeacher } from "react-icons/fa";
+
 import Navbar1 from './Navbar';
 
 const Signin = () => {
@@ -59,14 +60,16 @@ const Signin = () => {
     const fetchClassPosts = async () => {
         let res = await fetch("https://fliprclassroom.herokuapp.com/auth/signin", {
             method: 'POST',
-            headers : { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
             body : JSON.stringify({
                 'email': email,
                 'password': password,
-            })
+            }),
+            headers: {
+                'Content-Type':'application/json',
+                Accept: "application/json",
+            },
+            withCredentials: true,
+            credentials: 'include'
         });
         res = await res.json();
         return res;

@@ -37,7 +37,15 @@ const Navbar1 = () => {
 
   const logout = async () => {
     try {
-      let res = await fetch('https://fliprclassroom.herokuapp.com/auth/logout');
+      let res = await fetch('https://fliprclassroom.herokuapp.com/auth/logout', {
+        method: 'GET',
+        headers: {
+            'Content-Type':'application/json',
+            Accept: "application/json",
+        },
+        withCredentials: true, 
+        credentials: 'include',
+    });
       console.log(res);
       res = await res.json();
       console.log(res);
@@ -59,9 +67,15 @@ const Navbar1 = () => {
       const [error, setError] = useState('');
 
       const submit = async () => {
-        let res = await fetch(`https://fliprclassroom.herokuapp.com/class/join/${code}`, {method: 'PATCH', headers: {
-            'Content-Type':'application/json'
-        }})
+        let res = await fetch(`https://fliprclassroom.herokuapp.com/class/join/${code}`, {
+          method: 'PATCH', 
+          headers: {
+            'Content-Type':'application/json',
+            Accept: "application/json",
+          },
+          withCredentials: true, 
+          credentials: 'include'
+      })
         res = await res.json();
         if (res.error) {
           setError(res.error);
@@ -120,8 +134,11 @@ const Navbar1 = () => {
             link: link,
           }),
           headers: {
-            'Content-Type':'application/json'
-          }
+            'Content-Type':'application/json',
+            Accept: "application/json",
+          },
+          withCredentials: true,
+          credentials: 'include'
         })
 
         res = await res.json();

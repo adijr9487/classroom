@@ -19,10 +19,13 @@ const HomePage = () => {
     const fetchClasses = async () => {
         try{
             const res = await fetch('https://fliprclassroom.herokuapp.com/class', {
-                method:"GET",
+                method: 'GET',
                 headers: {
-                    "Content-Type": "application/json"
-                }
+                    'Content-Type':'application/json',
+                    Accept: "application/json",
+                },
+                withCredentials: true, 
+                credentials: 'include',
             });
             const data = await res.json();
             if(data.error) throw data.error
@@ -35,7 +38,15 @@ const HomePage = () => {
 
     const unenroll = async (id) => {
         try {
-            let res = await fetch(`https://fliprclassroom.herokuapp.com/class/unenroll/${id}`, { method: 'PATCH' });
+            let res = await fetch(`https://fliprclassroom.herokuapp.com/class/unenroll/${id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type':'application/json',
+                    Accept: "application/json",
+                  },
+                withCredentials: true, 
+                credentials: 'include'
+            });
             res = await res.json();
             if (!res.error) {
                 setClasses(prev => {

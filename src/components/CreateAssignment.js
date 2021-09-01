@@ -54,11 +54,13 @@ const CreateAssignment = () => {
     const fetchClassPosts = async (sendQuestionData) => {
         let res = await fetch(`https://fliprclassroom.herokuapp.com/class/${params.id}/assign`, {
             method: 'POST',
-            headers : { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
+            body : JSON.stringify(sendQuestionData),
+            headers: {
+                'Content-Type':'application/json',
+                Accept: "application/json",
             },
-            body : JSON.stringify(sendQuestionData)
+            withCredentials: true,
+            credentials: 'include',
         });
         res = await res.json();
         return res;

@@ -21,6 +21,13 @@ const A_Class = () => {
         const fetchCls = async () => {
             try {
                 let res = await fetch(`https://fliprclassroom.herokuapp.com/class/${params.id}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type':'application/json',
+                        Accept: "application/json",
+                    },
+                    withCredentials: true, 
+                    credentials: 'include',
                 });
                 res = await res.json();
                 if (res.error) {
@@ -33,7 +40,15 @@ const A_Class = () => {
         }
         const fetchPosts = async () => {
             try {
-                let res = await fetch(`https://fliprclassroom.herokuapp.com/class/${params.id}/posts`);
+                let res = await fetch(`https://fliprclassroom.herokuapp.com/class/${params.id}/posts`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type':'application/json',
+                        Accept: "application/json",
+                    },
+                    withCredentials: true, 
+                    credentials: 'include',
+                });
                 res = await res.json();
                 if (res.error) {
                     setError(res.error);
@@ -70,8 +85,11 @@ const A_Class = () => {
                 method: 'POST',
                 body: JSON.stringify({title:'',content: announce}),
                 headers: {
-                    'Content-Type':'application/json'
-                }
+                    'Content-Type':'application/json',
+                    Accept: "application/json",
+                },
+                withCredentials: true,
+                credentials: 'include'
             })
             res = await res.json();
             if (res.error) {
